@@ -7,7 +7,8 @@
   </head>
 
   <body>
-    <canvas id="moneyChart" width="400" height="300"></canvas>
+    <canvas id="moneyChartApril" width="400" height="300"></canvas>
+    <canvas id="moneyChartMarch" width="400" height="300"></canvas>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
@@ -42,8 +43,8 @@
       { day: '2018-03-27', spent: 39.15 },
       { day: '2018-03-28', spent: 0 },
       { day: '2018-03-29', spent: 152.03 },
-      { day: '2018-03-30', spent: 0 },
-      { day: '2018-03-31', spent: undefined }
+      { day: '2018-03-30', spent: 25.96 },
+      { day: '2018-03-31', spent: 53.9 }
     ];
 
     const aprilExpenses = [
@@ -79,10 +80,24 @@
       { day: '2018-04-30', spent: undefined }
     ];
 
+    // March 2018
+    const dayInMarch = 31;
+    const marchBudget = 1479.5;
+
     moneyChart(
-      'moneyChart',
+      'moneyChartMarch',
       'March 2018',
-      buildDataSets(31, 1479.5, marchExpenses)
+      buildDataSets(dayInMarch, marchBudget, marchExpenses)
+    );
+
+    // April 2018
+    const dayInApril = 30;
+    const aprilBudget = 1215.34;
+
+    moneyChart(
+      'moneyChartApril',
+      'April 2018',
+      buildDataSets(dayInApril, aprilBudget, aprilExpenses)
     );
 
     </script>
