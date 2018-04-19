@@ -130,3 +130,27 @@ function buildDataSets(nbDaysInTheMonth, monthlyBudget, monthlyExpenses) {
     }]
   };
 }
+
+function renderMonthlyBudgets(expenses) {
+  R.forEach(cur => {
+    // Util
+    const q = R.prop(R.__, cur);
+    // Create canvas and define its attribute
+    const el = document.createElement('canvas');
+    el.id = q('element');
+    el.setAttribute('width', 400);
+    el.setAttribute('height', 300);
+    // Append the canvas into the DOM
+    document.body.prepend(el);
+    // Build the chart
+    moneyChart(
+      q('element'),
+      q('chartTitle'),
+      buildDataSets(q('dayInMonth'), q('budget'), q('expenses'))
+    );
+  }, expenses);
+
+  return document.getElementsByTagName('canvas');
+}
+
+renderMonthlyBudgets(expenses);
