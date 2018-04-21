@@ -138,8 +138,6 @@ function renderMonthlyBudgets(expenses) {
     // Create canvas and define its attribute
     const el = document.createElement('canvas');
     el.id = q('element');
-    el.setAttribute('width', 400);
-    el.setAttribute('height', 300);
     // Append the canvas into the DOM
     document.body.prepend(el);
     // Build the chart
